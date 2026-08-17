@@ -1,6 +1,6 @@
 window.PorfolioConfig = {
-  name: 'John Doe',
-  jobTitle: 'Full-stack Web Developer',
+  name: 'Noah Hägglund Johnson',
+  jobTitle: 'Sound Designer & Video Editor',
   jobDescription: 'Sit quis in tempor quis. Nisi ex exercitation in irure. Reprehenderit sint aliqua et dolore enim laboris dolore exercitation magna aliqua ex ad.',
   skills: [
     {
