@@ -1,7 +1,7 @@
 window.PortfolioConfig = {
   name: 'Noah Hägglund Johnson',
   jobTitle: 'Sound Designer & Video Editor',
-  jobDescription: 'Sit quis in tempor quis. Nisi ex exercitation in irure. Reprehenderit sint aliqua et dolore enim laboris dolore exercitation magna aliqua ex ad.',
+  jobDescription: 'Sound composer, designer and engineer. I create sound design and music for games, animation and film.',
   skills: [
     {
       name: 'JavaScript',
@@ -48,9 +48,8 @@ window.PortfolioConfig = {
     }
   ],
   contacts: {
-    email: 'john.doe@gmail.com',
-    mobileNo: '+639171234567',
-    phoneNo: '+12 345 6789',
+    email: 'Noahhaegglund@gmail.com',
+    mobileNo: '+46 702 094 944',
     links: [
       {
         name: 'GitHub',
