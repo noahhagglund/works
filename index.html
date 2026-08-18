@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Noah Hägglund — Sound Designer</title>
-<meta name="description" content="Noah Hägglund — Sound Designer & Music Maker based in Stockholm, Sweden.">
+<meta name="description" content="Noah Hägglund — sound designer, composer and audio engineer based in Stockholm, Sweden.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +18,7 @@
   --text: #E9E7E2;
   --muted: #ABA8A2;
   --accent: #E29569;
+  --line: #3A3A38;
 }
 
 * {
@@ -26,10 +27,8 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  width: 100%;
-  height: 100%;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -37,49 +36,252 @@ body {
   color: var(--text);
   font-family: 'Inter', sans-serif;
   font-weight: 400;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
-.page {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 48px;
-  text-align: center;
+::selection {
+  background: var(--accent);
+  color: #000;
 }
 
-nav {
-  position: absolute;
-  top: 48px;
-  left: 48px;
-  font-size: 1.4rem;
-}
-
-nav a {
-  color: var(--accent);
+a {
+  color: inherit;
   text-decoration: none;
 }
 
-.message h1 {
+/* =========================
+   LAYOUT
+========================= */
+
+.shell {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 64px 48px;
+  gap: 24px;
+}
+
+nav {
+  position: sticky;
+  top: 64px;
+  align-self: start;
+  font-size: 1.4rem;
+  transform: translateX( 60px);
+}
+
+nav a {
+  display: block;
+  color: var(--muted);
+  margin-bottom: 6px;
+  transition: color 0.2s ease;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--accent);
+}
+
+main {
+  width: 100%;
+  min-width: 0;
+  transform: translateX(-142px);
+}
+
+/* =========================
+   WORK
+========================= */
+
+#work {
+  margin-bottom: 160px;
+}
+
+.project {
+  margin-bottom: 96px;
+}
+
+.project-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #111;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.project-video iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.project-info {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 32px;
+  padding-top: 18px;
+}
+
+.project-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.project-meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.project-description {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+#about {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.lede {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.lede p {
+  font-size: 1.05rem;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.rule {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 64px 0;
+}
+
+/* =========================
+   SERVICES
+========================= */
+
+.services {
+  text-align: center;
+  margin: 0 auto 64px;
+  max-width: 900px;
+}
+
+.services h2 {
   font-family: 'Lora', serif;
   font-weight: 400;
-  font-size: clamp(2rem, 5vw, 4rem);
-  line-height: 1.15;
-  margin-bottom: 10px;
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  letter-spacing: 0.02em;
 }
 
-.message p {
+.services > p {
+  font-family: 'Lora', serif;
+  font-style: italic;
   color: var(--muted);
-  font-size: 0.9rem;
+  max-width: 520px;
+  margin: 0 auto 56px;
+  font-size: 1rem;
 }
+
+.service-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.service-cols .orb {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+}
+
+.orb.sound {
+  background: radial-gradient(
+    circle at 35% 30%,
+    #f0a97e,
+    #c25b4e 70%
+  );
+}
+
+.orb.mix {
+  background: radial-gradient(
+    circle at 35% 30%,
+    #f7c193,
+    #e2894f 70%
+  );
+}
+
+.orb.restore {
+  background: radial-gradient(
+    circle at 35% 30%,
+    #fdf1d8,
+    #e0a94a 70%
+  );
+}
+
+.service-cols h3 {
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 14px;
+}
+
+.service-cols p {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* =========================
+   CLOSING BIO
+========================= */
+
+.closing p {
+  color: var(--text);
+  font-size: 1rem;
+  max-width: 640px;
+  margin: 0 auto 32px;
+}
+
+.say-hello {
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+
+.contact-details {
+  text-align: right;
+}
+
+.contact-details a {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: var(--text);
+}
+
+.contact-details a:hover {
+  color: var(--accent);
+}
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
-  position: absolute;
-  bottom: 32px;
-  left: 0;
-  width: 100%;
+  margin-top: 120px;
+  padding-bottom: 32px;
 }
 
 footer p {
@@ -88,20 +290,43 @@ footer p {
   text-align: center;
 }
 
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 800px) {
 
-  .page {
-    padding: 32px 24px;
+.shell {
+  position: relative;
+  min-height: 100vh;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 64px 48px;
+}
+
+nav {
+  position: fixed;
+  top: 64px;
+  left: 48px;
+  font-size: 1.4rem;
+}
+
+  .project {
+    margin-bottom: 72px;
   }
 
-  nav {
-    top: 32px;
-    left: 24px;
-    font-size: 1.2rem;
+  .project-info {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 
-  .message h1 {
-    font-size: 2.5rem;
+  .service-cols {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .contact-details {
+    text-align: left;
   }
 
 }
@@ -111,29 +336,551 @@ footer p {
 
 <body>
 
-<div class="page">
+<div class="shell">
+
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
 
   <nav>
-    <a href="#">Noah Hägglund</a>
+
+    <a href="#work" class="active">
+      work
+    </a>
+
+    <a href="#about">
+      about
+    </a>
+
   </nav>
+
 
   <main>
 
-    <div class="message">
+    <!-- =========================
+         WORK
+    ========================= -->
 
-      <h1>gone fishing</h1>
+    <section id="work">
 
-      <p>back soon.</p>
 
-    </div>
+      <!-- PROJECT 1 -->
+
+      <article class="project">
+
+        <div class="project-video">
+
+          <!--
+          PASTE YOUR VIDEO EMBED URL HERE
+
+          Vimeo example:
+          https://player.vimeo.com/video/123456789
+
+          YouTube example:
+          https://www.youtube.com/embed/VIDEO_ID
+          -->
+
+          <iframe
+            src="https://www.youtube.com/embed/_bZya92FC8I"
+            title="Project 1"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+
+        </div>
+
+        <div class="project-info">
+
+          <div>
+            <h2 class="project-title">
+              Christmas Greeting 2026
+            </h2>
+
+            <p class="project-meta">
+              Sweco / Konkret AB · Role: Sound Design / Mix
+            </p>
+          </div>
+
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 2 -->
+
+      <article class="project">
+
+        <div class="project-video">
+
+          <iframe
+            src="https://www.youtube.com/embed/7YHTXxKZF6k?si=hufZkvHp5kNBIy"
+            title="Project 2"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+
+        </div>
+
+        <div class="project-info">
+
+          <div>
+            <h2 class="project-title">
+              Christmas Greeting 2025
+            </h2>
+
+            <p class="project-meta">
+              Sweco / Konkret AB · Role: Sound Design / Mix
+            </p>
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 3 -->
+
+      <article class="project">
+
+        <div class="project-video">
+
+          <iframe
+            src="https://player.vimeo.com/video/1098969894?h=e0b7eb809e"
+            title="Project 3"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+
+        </div>
+
+        <div class="project-info">
+
+          <div>
+            <h2 class="project-title">
+              Blåkläder's Triple Density Sole
+            </h2>
+
+            <p class="project-meta">
+              BlåKläder / Konkret AB · Role: Sound Design / Mix
+            </p>
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 4 -->
+
+      <article class="project">
+
+        <div class="project-video">
+
+          <iframe
+            src="https://www.youtube.com/embed/qAWUTnCIgBg?si=YvfBONgyNaT34oTQ"
+            title="Project 4"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+
+        </div>
+
+        <div class="project-info">
+
+          <div>
+            <h2 class="project-title">
+              Red Bull Symphonic x Victor Leksell (BTS)
+            </h2>
+
+            <p class="project-meta">
+              Redbull / SoYou · Role: Editor / Sound Design / Mix
+            </p>
+          </div>
+
+          <p class="project-description">
+            Behind the scenes film for Victor Leksells Red Bull Symphonic.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 5 -->
+
+      <article class="project">
+
+        <div class="project-video">
+
+          <iframe
+            src="https://www.youtube.com/embed/ygVyPM1IvMU?si=2e-iCC8y15AASd0D"
+            title="Project 5"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+
+        </div>
+
+        <div class="project-info">
+
+          <div>
+            <h2 class="project-title">
+              Stellaris Nexus Trailer
+            </h2>
+
+            <p class="project-meta">
+              Paradox / Artistry film · Role: Sound Design / Mix
+            </p>
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 6 -->
+
+      <article class="project">
+
+        <div class="project-video">
+
+          <iframe
+            src="https://player.vimeo.com/video/807228365?h=071261df06"
+            title="Project 6"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+
+        </div>
+
+        <div class="project-info">
+
+          <div>
+            <h2 class="project-title">
+              Swedish Sterling
+            </h2>
+
+            <p class="project-meta">
+              Stirling Versal / Rob Whiteman · Role: Sound Design / Mix
+            </p>
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 7 -->
+
+      <article class="project">
+
+        <div class="project-video">
+
+          <iframe
+            src="https://player.vimeo.com/video/476216027?h=d37157fb46"
+            title="Project 7"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+
+        </div>
+
+        <div class="project-info">
+
+          <div>
+            <h2 class="project-title">
+              12,000 KM - Trans-Siberian to Japan
+            </h2>
+
+            <p class="project-meta">
+              Erik Nylander · Role: Composer / Sound Design / Mix
+            </p>
+          </div>
+
+        </div>
+
+      </article>
+      
+      
+            <!-- PROJECT 8 -->
+
+      <article class="project">
+
+        <div class="project-video">
+
+          <iframe
+            src="https://player.vimeo.com/video/807228185?h=ece2d146ee"
+            title="Project 8"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+
+        </div>
+
+        <div class="project-info">
+
+          <div>
+            <h2 class="project-title">
+              Revelop
+            </h2>
+
+            <p class="project-meta">
+              Revelop / Rob Whiteman · Role: Composer / Sound Design / Mix
+            </p>
+          </div>
+
+        </div>
+
+      </article>
+      
+      
+                  <!-- PROJECT 8 -->
+
+      <article class="project">
+
+        <div class="project-video">
+
+          <iframe
+            src="https://www.youtube.com/embed/ao1cUOzVvrQ?si=xv9Yrxn5m-FrOhvF"
+            title="Project 8"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+
+        </div>
+
+        <div class="project-info">
+
+          <div>
+            <h2 class="project-title">
+              Lovisa Ringborg at Fotografiska
+            </h2>
+
+            <p class="project-meta">
+              Fotografiska Museet / Camilo Altera · Role: Sound Design / Mix
+            </p>
+          </div>
+            
+        </div>
+
+      </article>
+
+      
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
+    <section id="about">
+
+      <div class="lede">
+
+        <p>
+          Hello! My name is Noah Hägglund.
+        </p>
+
+        <p>
+          I am a sound composer, designer and engineer. I create sound design and music for games, animation and film.
+        </p>
+
+        <p>
+          Over the past several years, I have honed my craft by working on commercial film and television projects, specializing in audio production for short format promotional films.
+        </p>
+
+        <p>
+          However, I have also successfully applied my skills to longer formats, such as dramas &amp; documentaries.
+        </p>
+
+        <p>
+          My expertise lies in capturing &amp; crafting high-quality audio that enhances the overall production value of these projects.
+        </p>
+
+      </div>
+
+
+      <hr class="rule">
+
+
+      <!-- =========================
+           SERVICES
+      ========================= -->
+
+      <div class="services">
+
+        <h2>
+          Services
+        </h2>
+
+        <p>
+          I specialize in creating high-quality audio for various media projects.
+          I can help with a range of services that include:
+        </p>
+
+
+        <div class="service-cols">
+
+
+          <div>
+
+            <div class="orb sound"></div>
+
+            <h3>
+              Sound Design
+            </h3>
+
+            <p>
+              Design and create custom sound effects tailored to your project's specific needs.
+              From detailed environments and movement to dramatic effects and atmospheric soundscapes.
+            </p>
+
+          </div>
+
+
+          <div>
+
+            <div class="orb mix"></div>
+
+            <h3>
+              Mixing &amp; Mastering
+            </h3>
+
+            <p>
+              Mix and master your project's audio so dialogue, music and sound effects work together clearly and effectively.
+            </p>
+
+          </div>
+
+
+          <div>
+
+            <div class="orb restore"></div>
+
+            <h3>
+              Audio Restoration
+            </h3>
+
+            <p>
+              Clean up and restore existing recordings by removing unwanted noise, hiss, hum and other distractions while preserving the character of the original recording.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <hr class="rule">
+
+
+      <!-- =========================
+           CLOSING
+      ========================= -->
+
+      <div class="closing">
+
+        <p>
+          I'm constantly striving to further develop my workflow &amp; my own sound.
+          This, of course, without ever sacrificing the quality of my craft.
+          I'm always keen on going the extra mile for that premium end product.
+        </p>
+
+        <p>
+          As a side fling, i indulge in crafting unique sounds using Ableton.
+          Whether it's gritty electronic dance music, experimental beats or rich soundscapes,
+          my primary goal is to evoke emotions and produce unique, captivating music that engages the listener.
+        </p>
+
+
+        <p class="say-hello">
+          Say hello:
+        </p>
+
+
+        <div class="contact-details">
+
+          <a href="mailto:noahhaegglund@gmail.com">
+            noahhaegglund@gmail.com
+          </a>
+
+          <a href="tel:+46702094944">
+            +46 70 209 49 44
+          </a>
+
+        </div>
+
+      </div>
+
+
+    </section>
+
+
+    <footer>
+
+      <p>
+        © 2026 Noah Hägglund
+      </p>
+
+    </footer>
+
 
   </main>
 
 </div>
 
-<footer>
-  <p>© 2026 Noah Hägglund</p>
-</footer>
+
+<script>
+
+  // Highlight navigation based on scroll position
+
+  const links = document.querySelectorAll('nav a');
+
+  const sections = [...links].map(
+    link => document.querySelector(link.getAttribute('href'))
+  );
+
+
+  const setActive = () => {
+
+    let current = sections[0];
+
+    sections.forEach(section => {
+
+      if (
+        section &&
+        section.getBoundingClientRect().top <= 120
+      ) {
+        current = section;
+      }
+
+    });
+
+
+    links.forEach(link => {
+
+      link.classList.toggle(
+        'active',
+        link.getAttribute('href') === '#' + current.id
+      );
+
+    });
+
+  };
+
+
+  window.addEventListener(
+    'scroll',
+    setActive,
+    { passive: true }
+  );
+
+  setActive();
+
+</script>
 
 </body>
 </html>
