@@ -18,7 +18,6 @@
   --text: #E9E7E2;
   --muted: #ABA8A2;
   --accent: #E29569;
-  --line: #3A3A38;
 }
 
 * {
@@ -27,8 +26,10 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
 
 body {
@@ -41,32 +42,24 @@ body {
 
 .page {
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 64px 48px;
-  gap: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  text-align: center;
 }
 
 nav {
+  position: absolute;
+  top: 48px;
+  left: 48px;
   font-size: 1.4rem;
 }
 
 nav a {
-  display: block;
   color: var(--accent);
   text-decoration: none;
-}
-
-main {
-  display: flex;
-  align-items: center;
-  min-height: calc(100vh - 128px);
-}
-
-.message {
-  max-width: 700px;
 }
 
 .message h1 {
@@ -74,22 +67,19 @@ main {
   font-weight: 400;
   font-size: clamp(2rem, 5vw, 4rem);
   line-height: 1.15;
-  margin-bottom: 24px;
+  margin-bottom: 10px;
 }
 
 .message p {
   color: var(--muted);
-  font-size: 1rem;
-  max-width: 500px;
+  font-size: 0.9rem;
 }
 
 footer {
-  position: fixed;
+  position: absolute;
   bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% - 96px);
-  max-width: 1504px;
+  left: 0;
+  width: 100%;
 }
 
 footer p {
@@ -101,18 +91,17 @@ footer p {
 @media (max-width: 800px) {
 
   .page {
-    grid-template-columns: 1fr;
     padding: 32px 24px;
-    gap: 48px;
   }
 
-  main {
-    min-height: auto;
-    padding-top: 20vh;
+  nav {
+    top: 32px;
+    left: 24px;
+    font-size: 1.2rem;
   }
 
-  footer {
-    width: calc(100% - 48px);
+  .message h1 {
+    font-size: 2.5rem;
   }
 
 }
@@ -125,18 +114,16 @@ footer p {
 <div class="page">
 
   <nav>
-    <a href="#">noah</a>
+    <a href="#">Noah Hägglund</a>
   </nav>
 
   <main>
 
     <div class="message">
 
-      <h1>under construction</h1>
+      <h1>gone fishing</h1>
 
-      <p>
-        sound designer &amp; music maker based in Stockholm, Sweden.
-      </p>
+      <p>back soon.</p>
 
     </div>
 
